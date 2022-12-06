@@ -1,0 +1,170 @@
+<header class="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header-logo">
+                    <a routerLink="/home">
+                        <img src="./assets/logo.png" width="160" height="36" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="main-navigation">
+                    <nav class="header-menu">
+                        <ul class="menu food-nav-menu">
+                            <li><a routerLink="home">Home</a></li>
+                            <li><a routerLink="/manageCustomer">Manage Users</a></li>
+                            <li><a routerLink="/managePurchase">Manage Orders</a></li>
+                            <li>
+                                <button (click)="clickAddProduct()" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Add Product
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="clickEditProduct()" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Edit Product
+                                </button>
+                            </li>
+                            <li><button class="btn btn-secondory" (click)="adminLogout()">Logout</button></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</header>
+<div class="container myTable">
+    <span class="prodLogo">Product List</span>
+    <table class="table table-stripped" matSort (matSortChange)="sortData($event)">
+        <thead>
+            <tr>
+                <th style="width: 18%;" mat-sort-header="name">Name <i class="fas fa-sort"></i></th>
+                <th style="width: 15%;">Category <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="actualPice">Actual Price <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="price">Price <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="discount">Discount <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="avail">Availability <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="persons">Persons <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="stars">Stars <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="calories">Calories <i class="fas fa-sort"></i></th>
+                <th mat-sort-header="type">Type <i class="fas fa-sort"></i></th>
+                <th style="width: 18%;">ImageUrl <i class="fas fa-sort"></i></th>
+                <th style="width: 100;">Update</th>
+                <th style="width: 100;">Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of sortedProduct">
+                <td>{{product.name}}</td>
+                <td class="makeCenter">{{product.category}}</td>
+                <td class="makeCenter">{{product.actualPrice}}</td>
+                <td class="makeCenter">{{product.price}}</td>
+                <td class="makeCenter">{{product.discount}}</td>
+                <td class="makeCenter"><i *ngIf="product.avail=='no'" class="fas fa-times"></i>
+                    <i *ngIf="product.avail=='yes'" class="fas fa-check"></i>
+                </td>
+                <td class="makeCenter">{{product.persons}}</td>
+                <td class="makeCenter">{{product.stars}}</td>
+                <td class="makeCenter">{{product.calories}}</td>
+                <td class="makeCenter">{{product.type}}</td>
+                <td>{{product.imagepath}}</td>
+                <td>
+                    <button (click)="onEdit(product)" type="button" class="btn btn-sm btn-primary" data-togle="modal"
+                        data-target="#examleModal">Update</button>
+                </td>
+                <td>
+                    <button (click)="deleteProduct(product)" class="btn btn-sm btn-danger"
+                        style="margin-left: 3px;">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- add products -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">ADD PRODUCT</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <p *ngIf="message!=''">{{message}}</p>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="col-form-label">Category</label>
+                        <select type="text" formControlName="category" class="form-control" id="category" required>
+                            <option value="Indian">Indian</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Maxican">Maxican</option>
+                            <option value="italian">Italian</option>
+                            <option value="Thai">Thai</option>
+                            <option value="American">American</option>
+                            <option value="japenese">japenese</option>
+                            <option value="Korean">Korean</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="actualPrice" class="col-form-label">Price</label>
+                        <input type="text" formControlName="actualPrice" class="form-control" id="actualPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discount" class="col-form-label">Discount</label>
+                        <input type="text" formControlName="discount" class="form-control" id="discount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type" class="col-form-label">Type</label>
+                        <select type="text" formControlName="type" class="form-control" id="type" required>
+                            <option value="veg">Veg</option>
+                            <option value="Non-veg">Non-Veg</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="avail" class="col-form-label">Availability</label>
+                        <div class="form-check">
+                            <input type="radio" formControlName="avail" value="yes" class="form-check-input" id="yes"
+                                required>
+                            <label for="avail" class="form-check-label">yes</label>
+                            <input style="margin-left:20px;" type="radio" formControlName="avail" value="no"
+                                class="form-check-input" id="no" required>
+                            <label style="margin-left:28px;" for="avail" class="form-check-label">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="persons" class="col-form-label">Persons</label>
+                        <input type="text" formControlName="persons" class="form-control" id="persons" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calories" class="col-form-label">Calories</label>
+                        <input type="text" formControlName="calories" class="form-control" id="calories" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="stars" class="col-form-label">Stars</label>
+                        <input type="text" formControlName="stars" class="form-control" id="stars" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagepath" class="col-form-label">ImageUrl</label>
+                        <input type="text" formControlName="imagepath" class="form-control" id="imagep ath" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p *ngIf="message!=''" class="text-left">{{message}}</p>
+                <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" *ngIf="showAdd" (click)="addProduct()" class="btn btn-primary">Add</button>
+                <button type="button" *ngIf="showUpdate" (click)="updateProduct()"
+                    class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

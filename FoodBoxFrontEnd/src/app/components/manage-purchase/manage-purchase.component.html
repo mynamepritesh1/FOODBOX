@@ -1,0 +1,67 @@
+<header class="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header-logo">
+                    <a routerLink="/home">
+                        <img src="./assets/logo.png" width="160" height="36" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="main-navigation">
+                    <nav class="header-menu">
+                        <ul class="menu food-nav-menu">
+                            <li><a routerLink="home">Home</a></li>
+                            <li><a routerLink="/adminDashobard">Manage products</a></li>
+                            <li><a routerLink="/manageCustomer">Manage Users</a></li>
+                            <li><a routerLink="/managePurchase">Manage Orders</a></li>
+                            <li><button class="btn btn-secondory" (click)="adminLogout()">Logout</button></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <hr>
+</header>
+<div class="search">
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchKey" [(ngModel)]="keyword"
+                (ngModelChange)="searchPurchase()" placeholder="Search orders">
+            <div class="input-group-append">
+                <button (click)="searchPurchase()" class="btn bt-secondary btn-bg">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container myTable">
+    <span class="text-center prodLogo">Order List</span>
+    <table class="table table-stripped ">
+        <thead>
+            <tr>
+                <th>Transaction Id</th>
+                <th>Date Of Order</th>
+                <th>Food Name</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+                <!-- <th>Customer Email</th> -->
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allPurchase"  >
+                <td class="makeCenter">{{item.transactionid}}</td>
+                <td class="makeCenter">{{item.dop}}</td>
+                <td class="makeCenter">{{item.productname}}</td>
+                <td class="makeCenter">{{item.quanitity}}</td>
+                <td class="makeCenter">{{item.totalcost}}</td>
+                <!-- <td class="makeCenter">{{item.customer.email}}</td> -->
+                <td>
+                    <button (click)="deletePurchase(item.id)" class="btn btn-sm btn-danger makeCenter">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,110 @@
+<header class="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header-logo">
+                    <a routerLink="/home">
+                        <img src="./assets/logo.png" width="160" height="36" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="main-navigation">
+                    <nav class="header-menu">
+                        <ul class="menu food-nav-menu">
+                            <li><a routerLink="home">Home</a></li>
+                            <li><a routerLink="/adminDashobard">Manage products</a></li>
+                            <li><a routerLink="/manageCustomer">Manage Users</a></li>
+                            <li><a routerLink="/managePurchase">Manage Orders</a></li>
+                            <li><button class="btn btn-secondory" (click)="adminLogout()">Logout</button></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</header>
+<div class="search">
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchKey" [(ngModel)]="searchKey"
+                (ngModelChange)="searchCustomer()" placeholder="Search orders">
+            <div class="input-group-append">
+                <button (click)="searchCustomer()" class="btn bt-secondary btn-bg">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container myTable">
+    <span class="text-center prodLogo">User List</span>
+    <table class="table table-stripped ">
+        <thead>
+            <tr>
+                <th>Customer Email</th>
+                <th>Customer Name</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>View Order</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allCustomers">
+                <td class="makeCenter">{{item.email}}</td>
+                <td class="makeCenter">{{item.name}}</td>
+                <td class="makeCenter">{{item.contact}}</td>
+                <td class="makeCenter">{{item.address}}</td>
+                <td>
+                    <button style="align-items:center;" (click)="getActiveOrders(item.email)" class="btn btn-sm btn-primary makeCenter" type="button"
+                        data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">View Orders</button>
+                </td>
+                <td>
+                    <button (click)="deleteCustomer(item.email)" class="btn btn-sm btn-danger makeCenter"
+                        style="margin-left:3px;">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Your Orders</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="activeOrders.length!=0">
+                    <table class="table">
+                        <thead class="thead-#bf1e2e">
+                            <tr>
+                                <td>Product Name</td>
+                                <td>Quantity</td>
+                                <td>Cost</td>
+                                <td>Purchase Date</td>
+                                <td>Transaction Id</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pur of activeOrders">
+                                <td>{{pur.productname}}</td>
+                                <td>{{pur.quantity}}</td>
+                                <td>{{pur.totalcost}}</td>
+                                <td>{{pur.dop}}</td>
+                                <td>{{pur.transactionid}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div *ngIf="activeOrders.length == 0">
+                    <h4 class="text-center text-danger">No Orders</h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<img class="wave" src="./assets/wave.png" alt="bg">
+<div class="container" id="registerModal">
+    <div class="img">
+        <img src="./assets/bg.png" alt="background">
+    </div>
+    <div class="login-content">
+        <form [formGroup]="formValue">
+            <img id="img" src="./assets/cartoon.png" alt="logo">
+            <h2 class="title">Register</h2>
+            <p *ngIf="message!= ''">{{message}}</p>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5>Email</h5>
+                    <input type="email" formControlName="email" id="orangeForm-Remail" class="input validate">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" formControlName="password" id="orangeForm-Rpass" class="input validate">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fa-solid fa-pen-fancy"></i>
+                </div>
+                <div class="div">
+                    <h5>Enter Name</h5>
+                    <input type="text" formControlName="name" id="orangeForm-name" class="input validate">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="div">
+                    <h5>Mobile Number</h5>
+                    <input type="text" formControlName="contact" id="orangeForm-contact" class="input validate">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fa-solid fa-address-book"></i>
+                </div>
+                <div class="div">
+                    <h5>Address</h5>
+                    <input type="text" formControlName="address" id="orangeForm-address" class="input validate">
+                </div>
+            </div>
+            <a routerLink="/login">Already User?</a>
+            <input type="submit" (click)="addCustomer()" class="btn" value="Register">
+        </form>
+    </div>
+</div>

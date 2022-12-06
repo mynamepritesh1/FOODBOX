@@ -1,0 +1,216 @@
+<header *ngIf="showHeader==1">
+    <!-- topbar -->
+    <div class="topbar">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="top-left">
+                        <!-- <span class="badge  text-dark">Hot Deals</span>
+                        <a href="">Todays Special</a> -->
+                        <img src="./assets/logo.png" width="160" height="36" alt="Logo">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="top-right">
+                        <ul class="rightElement">
+                            <li>
+                                <a routerLink="">
+                                    <i class="fa-solid fa-phone"></i>Contact
+                                </a>
+                            </li>
+                        </ul>
+                        <div *ngIf="login ==1" class="myAccount-nav"><span>
+                                <i class="fas fa-user-cog"></i>My Account
+                            </span>
+                            <ul class="myAccount-dropdown">
+                                <li>
+                                    <button (click)="Orders()" class="btn btnMain" type="button" data-toggle="modal"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">Orders</button>
+                                </li>
+                                <li>
+                                    <button (click)="logout()" class="btn btnMain">Logout</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- middle -->
+    <div class="header-midle">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 position-relative">
+                    <div class="logo">
+                        Foodbox<span>TastyFood</span>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-5 search-order">
+                    <div class="header-search">
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="searchKey" [(ngModel)]="searchKey"
+                                    (ngModelChange)="Search()" placeholder="Search food">
+                                <div class="input-group-append">
+                                    <button (click)="Search()" class="btn bt-secondary btn-bg">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-4">
+                    <div class="middle-header-right">
+                        <div *ngIf="login == 0" class="sign-register">
+                            <i class="bi bi-person">
+                            </i>
+                            <p>
+                                <a routerLink="/register" class="reg" type="button" data-toggle="modal"
+                                    data-target="#registerModal" id="custRegister">Register</a>
+                                <br>or
+                                <a routerLink="/login" class="login" type="button" data-toggle="modal"
+                                    data-target="#loginModal" id="custLogin">Login</a>
+                            </p>
+                        </div>
+                        <!-- <div *ngIf="login == 1">
+                            <div class="sign-register">{{customer.name}}
+                                <i class="bi bi-person">
+                                </i>
+                            </div>
+                        </div> -->
+                        <div class="wishlist-widget">
+                            <a><i class="bi bi-heart"></i></a>
+                        </div>
+                        <div *ngIf="login ==1" class="my-cart-widget">
+                            <button routerLink="/cart" class="btn position-relative">
+                                <i class="bi bi-bag">
+                                    <!-- <span
+                                        class="position-absolute translate-middle badge rounded-pill bg-danger">{{totalItem}}</span> -->
+                                </i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login -->
+
+    <!-- Register -->
+
+    <!-- navbar -->
+    <nav>
+        <div class="container-xxl">
+            <div class="nav-collapse">
+                <ul class="custom-nav">
+                    <li class="cst-nav-item">
+                        <a routerLink="/home" class="cst-nav-link">Home</a>
+                    </li>
+                    <li class="cst-nav-item cst-dropdown">
+                        <a class="cst-nav-link">Category<i class="bi bi-chevron-down"></i></a>
+                        <ul class="cst-dropdown-menu">
+                            <li>
+                                <a (click)="categoryIndian()" id="indian" class="cst-dropdown-items">Indian</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryChinese()" id="chinese" class="cst-dropdown-items">Chinese</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryItalian()" id="italian" class="cst-dropdown-items">Italian</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryMaxican()" id="maxican" class="cst-dropdown-items">Maxican</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryAmerican()" id="american" class="cst-dropdown-items">American</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryThai()" id="thai" class="cst-dropdown-items">Thai</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryJapense()" id="japnese" class="cst-dropdown-items">Japnese</a>
+                            </li>
+                            <li>
+                                <a (click)="categoryKorean()" id="korean" class="cst-dropdown-items">Japnese</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cst-nav-item cst-dropdown">
+                        <a class="cst-nav-link">Famous<i class="bi bi-chevron-down"></i></a>
+                        <ul class="cst-dropdown-menu">
+                            <li>
+                                <a href="" class="cst-dropdown-items">Chicken Briyani</a>
+                            </li>
+                            <li>
+                                <a href="" class="cst-dropdown-items">Paneer Briyani</a>
+                            </li>
+                            <li>
+                                <a href="" class="cst-dropdown-items">Pizaa</a>
+                            </li>
+                            <li>
+                                <a href="" class="cst-dropdown-items">Burger</a>
+                            </li>
+                            <li>
+                                <a href="" class="cst-dropdown-items">American</a>
+                            </li>
+                            <li>
+                                <a href="" class="cst-dropdown-items">Thai</a>
+                            </li>
+                            <li>
+                                <a href="" class="cst-dropdown-items">Japnese</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="download-app"><span>Download App</span>
+                    <a href=""> <img
+                            src="https://www.freepnglogos.com/uploads/google-play-png-logo/new-get-it-on-google-play-png-logo-20.png"
+                            alt="icon"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- order Summary -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Your Orders</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div *ngIf="activeOrders.length!=0">
+                        <table class="table">
+                            <thead class="thead-#bf1e2e">
+                                <tr>
+                                    <td>Product Name</td>
+                                    <td>Quantity</td>
+                                    <td>Cost</td>
+                                    <td>Purchase Date</td>
+                                    <td>Transaction Id</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pur of activeOrders">
+                                    <td>{{pur.productname}}</td>
+                                    <td>{{pur.quantity}}</td>
+                                    <td>{{pur.totalcost}}</td>
+                                    <td>{{pur.dop}}</td>
+                                    <td>{{pur.transactionid}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="activeOrders.length == 0">
+                        <h4 class="text-center text-danger">No Orders</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

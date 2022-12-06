@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="left column">
+        <div class="logo">
+            <div class="header">
+                <h1 class="ml12">Checkout</h1>
+            </div>
+            <div class="col-sm-5 text-sm-center justify-content-center pt-4 pb-4">
+                <small class="text-sm text-muted">Transaction Id</small>
+                <h5 class="mb-5">{{transId}}</h5><small class="text-sm text-muted">Amount</small>
+                <div class="row-px-3 justify-content-sm-center">
+                    <h2 class="price"><span class="text-danger amount">{{totalCost | currency:'INR'}}</span></h2>
+                    <div>
+                        <button type="submit" (click)="buyProducts()" class="btn btn-red text-center mt-4"
+                            id="pay">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right column">
+        <div class="nav">
+            <div routerLink="/home" class="nav-item">Home</div>
+            <div routerLink="/cart" class="nav-item">Cart</div>
+        </div>
+        <div class="card-img">
+            <img src="./assets/card.png" alt="logo" />
+        </div>
+        <div class="form">
+            <div class="form-row">
+                <input type="text" placeholder="card number">
+            </div>
+            <div class="form-row">
+                <input type="text" placeholder="expiry date">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="text" placeholder="cvv">
+            </div>
+        </div>
+    </div>
+</div>

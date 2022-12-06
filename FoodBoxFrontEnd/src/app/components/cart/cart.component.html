@@ -1,0 +1,36 @@
+<h1 class="h1-title">Cart<span>Page</span></h1>
+<div *ngIf="products.length == 0">
+    <app-ecart></app-ecart>
+</div>
+<div class="container">
+    <ul>
+        <li *ngFor="let item of sortedCart">
+            <div><img src="{{item.product.imagepath}}" alt="image"></div>
+            <div>
+                <a>{{item.product.name}}</a>
+            </div>
+            <div id=quantitySelect>
+                <button class="ab" (click)="lessOneCart(item.id,item)">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <input class="input" value="{{item.quantity}}">
+                <button class="ab" (click)="addOneCard(item.id,item)">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
+            <div>
+                {{item.price | currency:'INR'}}
+            </div>
+            <div>
+                <button class="remove-button" (click)="deleteItem(item.id)">Remove</button>
+            </div>
+        </li>
+    </ul>
+    <div class="checkout">
+        <div>
+            <div class="total-price">{{grandTotal | currency:'INR'}}</div>
+        </div>
+        <button routerLink="/payment"> Proceed To Checkout</button>
+    </div>
+
+</div>

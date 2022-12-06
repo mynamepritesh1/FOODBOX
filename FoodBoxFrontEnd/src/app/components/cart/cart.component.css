@@ -1,0 +1,213 @@
+.h1-title {
+    font-size: 90px;
+    line-height: 108px;
+    text-transform: capitalize;
+    margin: 1rem 0 1rem 0.2rem;
+    font-weight: 900;
+}
+
+.h1-title span {
+    color: #ff8243;
+    background-image: linear-gradient(0deg, rgb(13 13 37 /8%), rgb(13 13 37 /8%));
+    background-size: 100% 15px;
+    background-position: 0 90%;
+    background-repeat: no-repeat;
+    display: inline;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+.h2-title span, .h3-title span, .h4-title span, .h5-title span, .sub-title span {
+    display: block;
+}
+p {
+    font-size: 16px;
+    line-height: 30px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #0d0d25;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+ul{
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    display: flow-root;
+    padding: 0 30px 40px;
+    padding-top: 0;
+    margin: 40px 0 30px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    width: auto;
+
+}
+ul:hover{
+    transform: scale(1.03);
+
+}
+ul li{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e4e4e4;
+    color: #0d0d25;
+    font-size: 19px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+ul li:last-child{
+    border: none;
+}
+li img{
+    width: 5rem;
+    height: 5rem;
+    /* border-radius: 100rem; */
+    object-fit: cover;
+    color: #0d0d25;
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    border-radius: 50%;
+    overflow: hidden;
+    
+}
+
+li div{
+    padding: 1rem;
+}
+
+li div:not(:first-child){
+    flex-basis: 18%;
+}
+
+/* li #quantitySelect{
+    width: 3rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightcoral;
+    font-size: 1.2rem;
+    font-weight: 100;
+} */
+
+li .remove-button{
+    min-width: 120px;
+    min-height: 58px;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #b2b2b3, -9px -9px 12px #ffffff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: #0d0d25;
+    text-transform: capitalize;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    padding: 6px 30px;
+}
+
+li .remove-button:hover{
+    border-color: #0d0d25;
+    box-shadow: inset 9px 9px 12px #cccccc, inset -9px -9px 12px #ffffff;
+    color: #0d0d25;
+    background-color: #ffbbbb;
+}
+
+.checkout{
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    display: flow-root;
+    padding: 0 30px 40px;
+    padding-top: 0;
+    margin: 40px 0 30px 60px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    
+}
+.checkout:hover{
+    transform: scale(1.03);
+
+}
+.checkout>div{
+    font-size: 1.5rem;
+    margin: 1rem;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #0d0d25;
+    /* font-family: 'Playfair Display', serif; */
+    font-weight: 900;
+}
+.total-price::before{
+    content: "Price: ";
+    color: grey;
+
+}
+.checkout button{
+    min-width: 120px;
+    height: 40px;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #b2b2b3, -9px -9px 12px #ffffff;
+    display: block;
+    justify-self: center;
+    align-items: center;
+    border-radius: 30px;
+    color: #0d0d25;
+    text-transform: capitalize;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    padding: 6px 30px;
+}
+
+.checkout button:hover{
+    border-color: #0d0d25;
+    box-shadow: inset 9px 9px 12px #cccccc, inset -9px -9px 12px #ffffff;
+    color: #0d0d25;
+    background-color: #ffbbbb;
+}
+a:link{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+
+/* #quantitySelect{
+    margin: 5px;
+} */
+.ab{
+    border-radius: 50%;
+    /* padding: 0.15em 0.4em; */
+
+
+}
+input{
+    text-align: center;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    padding: .5rem;
+    width: 35px;
+    height: 10px;
+
+   
+}

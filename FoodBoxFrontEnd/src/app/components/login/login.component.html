@@ -1,0 +1,37 @@
+
+<img class="wave" src="./assets/wave.png" alt="bg">
+<div class="container">
+    <div class="img">
+        <img src="./assets/bg.png" alt="background">
+    </div>
+    <div class="login-content">
+        <form [formGroup]="formValue" (ngSubmit)="submit()">
+            <img src="./assets/cartoon1.png" alt="logo">
+            <h2 class="title">Welcome</h2>
+            <p *ngIf="message!= ''">{{message}}</p>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5 data-error="wrong" data-success="right" for="defaultForm-email">Email</h5>
+                    <input formControlName="email" name="email" id="defaultForm-email"
+                     type="email" class="input validate">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5 data-error="wrong" data-success="right" for="defaultForm-pass">Password</h5>
+                    <input formControlName="password" name="password" id="defaultForm-pass" 
+                    type="password" class="input validate">
+                </div>
+            </div>
+            <a href="/register">New User?</a>
+            <input type="submit" class="btn" id="submit" value="Login">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,158 @@
+<section style="background-image: url(./assets/menu-bg.png);" class="our-menu section bg-light repeat-img" id="menu">
+    <div class="sec-wp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sec-title text-center mb-5">
+                        <p class="sec-sub-title mb-3">our menu</p>
+                        <h2 class="h2-title">wake up early, <span>eat fresh & healthy</span></h2>
+                        <div class="sec-title-shape mb-4">
+                            <img src="./assets/title-shape.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-list-row">
+                <div class="row g-xxl-5 bydefault_show" id="menu-dish">
+                    <div class="col-lg-4 col-sm-6 dish-box-wp" *ngFor="let item of products">
+                        <div  class="dish-box text-center">
+                            <div class="dist-img">
+                                <img src="{{item.imagepath}}" alt="">
+                            </div>
+                            <div class="dish-rating">
+                                {{item.stars}}
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="dish-title">
+                                <h3 class="h3-title">{{item.name}}</h3>
+                                <p>{{item.calories}} calories</p>
+                            </div>
+                            <div class="dish-info">
+                                <ul>
+                                    <li>
+                                        <p>Type</p>
+                                        <b>{{item.type}}</b>
+                                    </li>
+                                    <li>
+                                        <p>Persons</p>
+                                        <b>{{item.persons}}</b>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dist-bottom-row">
+                                <ul>
+                                    <li>
+                                        <b>{{item.price | currency:'INR'}}</b>
+                                    </li>
+                                    <li>
+                                        <button *ngIf="login == 0" (click)="showToLogin()" class="dish-add-btn">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                        <button *ngIf="login == 1" (click)="addToCart(item)" id="addToCart"
+                                            class="dish-add-btn">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="two-col-sec section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="sec-img mt-5">
+                    <img src="./assets/pizza.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="sec-text">
+                    <h2 class="xxl-title">Chicken Pepperoni</h2>
+                    <p>This is Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolores
+                        eligendi earum eveniet soluta officiis asperiores repellat, eum praesentium nihil
+                        totam. Non ipsa expedita repellat atque mollitia praesentium assumenda quo
+                        distinctio excepturi nobis tenetur, cum ab vitae fugiat hic aspernatur? Quos
+                        laboriosam, repudiandae exercitationem atque a excepturi vel. Voluptas, ipsa.</p>
+                    <p>This is Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit laborum
+                        voluptas magnam sed ad illum? Minus officiis quod deserunt.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="two-col-sec section pt-0">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <div class="sec-text">
+                    <h2 class="xxl-title">Chicken Salad</h2>
+                    <p>This is Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolores
+                        eligendi earum eveniet soluta officiis asperiores repellat, eum praesentium nihil
+                        totam. Non ipsa expedita repellat atque mollitia praesentium assumenda quo
+                        distinctio excepturi nobis tenetur, cum ab vitae fugiat hic aspernatur? Quos
+                        laboriosam, repudiandae exercitationem atque a excepturi vel. Voluptas, ipsa.</p>
+                    <p>This is Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit laborum
+                        voluptas magnam sed ad illum? Minus officiis quod deserunt.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1">
+                <div class="sec-img">
+                    <img src="./assets/sushi.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="book-table section bg-light">
+    <div class="book-table-shape">
+        <img src="assets/images/table-leaves-shape.png" alt="">
+    </div>
+
+    <div class="book-table-shape book-table-shape2">
+        <img src="assets/images/table-leaves-shape.png" alt="">
+    </div>
+
+    <div class="sec-wp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sec-title text-center mb-5">
+                        <p class="sec-sub-title mb-3">Book Table</p>
+                        <h2 class="h2-title">Opening Table</h2>
+                        <div class="sec-title-shape mb-4">
+                            <img src="assets/images/title-shape.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="book-table-info">
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="table-title text-center">
+                            <h3>Monday to Thrusday</h3>
+                            <p>9:00 am - 20:00 pm</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="call-now text-center">
+                            <i class="fa fa-phone"></i>
+                            <a href="tel:+91-8866998866">+91 - 8888888888</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="table-title text-center">
+                            <h3>Friday to Sunday</h3>
+                            <p>11::00 AM to 23 :00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

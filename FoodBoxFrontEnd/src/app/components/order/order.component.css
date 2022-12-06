@@ -1,0 +1,53 @@
+body{
+    background-color: #ffe8d2;
+
+}
+.card{
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    display: flow-root;
+    padding: 0 30px 40px;
+    padding-top: 0;
+    margin: 130px 0 30px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+.card:hover{
+    transform: scale(1.03);
+}
+p {
+    font-size: 16px;
+    line-height: 30px;
+}
+h1, h2, h3, h4, h5, h6 {
+
+    color: #0d0d25;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+}
+.totals tr td{
+    font-size: 25px;
+    display: inline-block;
+}
+.footer span{
+    font-size: 15px;
+
+}
+.product-qty span{
+    font-size: 15px;
+    color: black;
+}
+.shopMore{
+    position: relative;
+    top: 10px;
+    left: 400px;
+    font-weight: 400;
+    font-size: 16;
+}
+.printOrder{
+    position: relative;
+    top:10px;
+    left: 380px;
+    font-weight: 400;
+    font-size: 16;
+}
