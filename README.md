@@ -1,2 +1,2 @@
 # FOODBOX
-Capston Project of Simplilearn 
+Online food delivery Application
